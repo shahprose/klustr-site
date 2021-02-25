@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+klustr - an open source monitoring tool for Apache Kafka
