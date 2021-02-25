@@ -195,7 +195,7 @@ export default function Home() {
                 <img src='/GitHub-Mark-32px.png' className='logos'></img>
               </a>
 
-              <a href='https://www.linkedin.com/in/eric-tacher-6876a449/'>
+              <a href='https://www.linkedin.com/in/erictacher/'>
                 <img src='/linkedin.png' className='logos'></img>
               </a>
             </div>
