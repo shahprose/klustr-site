@@ -69,7 +69,7 @@ export default function Home() {
             </a>
           </div>
           <div className='button-div'>
-            <a href='https://medium.com'>
+            <a href='https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42'>
               <img src='/Medium.png'></img>
             </a>
           </div>
@@ -84,7 +84,10 @@ export default function Home() {
             </p>
           </a>
 
-          <a href='https://medium.com' className='card'>
+          <a
+            href='https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42'
+            className='card'
+          >
             <h3>Learn &rarr;</h3>
             <p>
               Learn how klustr can help you monitor your Kafka instance by
