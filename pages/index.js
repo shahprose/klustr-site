@@ -86,8 +86,7 @@ export default function Home() {
 
           <a
             href='https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42'
-            className='card'
-          >
+            className='card'>
             <h3>Learn &rarr;</h3>
             <p>
               Learn how klustr can help you monitor your Kafka instance by
@@ -135,8 +134,7 @@ export default function Home() {
             <img className='gif-img' src='/images/Graph-SM.gif'></img>
             <img
               className='gif-img'
-              src='/images/Cluster-Overview-SM.gif'
-            ></img>
+              src='/images/Cluster-Overview-SM.gif'></img>
             <img className='gif-img' src='/images/Core-Metrics-SM.gif'></img>
             <img className='gif-img' src='/images/Broker-View-SM.gif'></img>
           </div>
@@ -224,7 +222,7 @@ export default function Home() {
           <img src='/LogoDots.svg' alt='klustr Logo' className='logoBig' />
         </div>
         <a href='#top' rel='noopener noreferrer'>
-          © 2021 klustr / OSLabs. All rights reserved.{' '}
+          © 2022 klustr / OSLabs. All rights reserved.{' '}
         </a>
       </footer>
 
