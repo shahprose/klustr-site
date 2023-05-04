@@ -1,9 +1,12 @@
 import Head from 'next/head';
-import ReactConfetti from 'react-confetti';
+import Confetti from 'react-confetti';
 import { useState, useEffect, useRef } from 'react';
+import { useWindowSize } from 'react-use';
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
+  const [showConfetti, setShowConfetti] = useState(false);
+  const { width, height } = useWindowSize();
 
   return (
     <div className='container'>
@@ -60,7 +63,11 @@ export default function Home() {
         <h1 className='title'>klustr</h1>
 
         <p className='description'>
-          <img src='/LogoDots.svg' alt='klustr Logo' id='splashLogo'></img>
+          <img
+            onClick={() => setShowConfetti(!showConfetti)}
+            src='/LogoDots.svg'
+            alt='klustr Logo'
+            id='splashLogo'></img>
           <br></br> <code>An open source monitoring tool for Apache Kafka</code>
         </p>
 
@@ -150,6 +157,7 @@ export default function Home() {
             <h1 className='subtitles'>Developers</h1>
           </div>
         </div>
+        {showConfetti && <Confetti width={width} height={height} />}
         <div className='team-container'>
           <div className='team-members'>
             <img className='team-picture' src='/shah.jpeg'></img>
