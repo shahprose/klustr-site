@@ -1,8 +1,10 @@
 import Head from 'next/head';
-// import Link from 'next/link';
-// import Layout from '../components/layout';
+import ReactConfetti from 'react-confetti';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className='container'>
       <a name='top'></a>
@@ -222,7 +224,7 @@ export default function Home() {
           <img src='/LogoDots.svg' alt='klustr Logo' className='logoBig' />
         </div>
         <a href='#top' rel='noopener noreferrer'>
-          © 2022 klustr / OSLabs. All rights reserved.{' '}
+          © {currentYear} klustr / OSLabs. All rights reserved.{' '}
         </a>
       </footer>
 
