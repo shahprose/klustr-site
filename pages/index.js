@@ -48,16 +48,6 @@ export default function Home() {
             Meet the Team
           </a>
         </div>
-        {/* <div>
-          <img src='/Octocat.png'>
-            {' '}
-            Hello
-            <a
-              href='https://www.linkedin.com/company/klustr'
-              target='_blank'
-            ></a>
-          </img>
-        </div> */}
       </header>
       <main>
         <h1 className='title'>klustr</h1>
