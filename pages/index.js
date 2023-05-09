@@ -525,6 +525,12 @@ export default function Home() {
           width: 150px;
           border-radius: 100px;
           margin-top: 10px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-picture:hover {
+          transform: scale(1.1);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .git-linked-container {
