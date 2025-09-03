@@ -57,7 +57,8 @@ export default function Home() {
             onClick={() => setShowConfetti(!showConfetti)}
             src='/LogoDots.svg'
             alt='klustr Logo'
-            id='splashLogo'></img>
+            id='splashLogo'
+          ></img>
           <br></br> <code>An open source monitoring tool for Apache Kafka</code>
         </p>
 
@@ -85,7 +86,8 @@ export default function Home() {
 
           <a
             href='https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42'
-            className='card'>
+            className='card'
+          >
             <h3>Learn &rarr;</h3>
             <p>
               Learn how klustr can help you monitor your Kafka instance by
@@ -133,7 +135,8 @@ export default function Home() {
             <img className='gif-img' src='/images/Graph-SM.gif'></img>
             <img
               className='gif-img'
-              src='/images/Cluster-Overview-SM.gif'></img>
+              src='/images/Cluster-Overview-SM.gif'
+            ></img>
             <img className='gif-img' src='/images/Core-Metrics-SM.gif'></img>
             <img className='gif-img' src='/images/Broker-View-SM.gif'></img>
           </div>
