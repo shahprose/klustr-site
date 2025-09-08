@@ -153,7 +153,7 @@ export default function Home() {
         {showConfetti && <Confetti width={width} height={height} />}
         <div className='team-container'>
           <div className='team-members'>
-            <img className='team-picture' src='/shah.jpeg'></img>
+            <img className='team-picture' src='/shah-v2.jpeg'></img>
             <h3>Shah Chaudri</h3>
             <div className='git-linked-container'>
               <a href='https://github.com/shahprose'>
