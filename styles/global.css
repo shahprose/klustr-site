@@ -1,5 +1,49 @@
+:root {
+  --bg-color: #ffffff;
+  --bg-gradient-start: #ffffff;
+  --bg-gradient-end: #ece9e6;
+  --text-color: #333333;
+  --border-color: #eaeaea;
+  --code-bg: #fafafa;
+  --code-border: #e0e0e0;
+  --button-text: #444444;
+  --button-border: #cccccc;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-border: #eaeaea;
+  --link-color: #0070f3;
+  --icon-color: #444444;
+}
+
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --bg-gradient-start: #1f2937;
+  --bg-gradient-end: #111827;
+  --text-color: #e5e7eb;
+  --border-color: #4b5563;
+  --code-bg: #0f172a;
+  --code-border: #334155;
+  --button-text: #d1d5db;
+  --button-border: #4b5563;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --card-border: #4b5563;
+  --link-color: #60a5fa;
+  --icon-color: #9ca3af;
+}
+
+[data-theme="dark"] img {
+  opacity: 0.85;
+}
+
+[data-theme="dark"] .logos {
+  filter: invert(1) brightness(1.1);
+  opacity: 0.9;
+}
+
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -7,6 +51,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 * {
@@ -14,7 +60,7 @@ body {
 }
 
 a {
-  color: #0070f3;
+  color: var(--link-color);
   text-decoration: none;
 }
 

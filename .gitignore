@@ -8,6 +8,14 @@
 # testing
 /coverage
 
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.auth/
+/screenshots/
+
 # next.js
 /.next/
 /out/
