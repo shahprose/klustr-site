@@ -68,8 +68,8 @@ export default function Home() {
             Demo
           </a>
         </div>
-        <button onClick={toggleTheme} className='theme-toggle'>
-          {isDark ? 'Light Mode' : 'Dark Mode'}
+        <button onClick={toggleTheme} className='theme-toggle' title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}>
+          {isDark ? '☀️' : '🌙'}
         </button>
         <div id='upperRight'>
           <a href='/#team' className='header-items'>
@@ -562,19 +562,31 @@ export default function Home() {
         }
 
         .theme-toggle {
-          background: none;
+          background: var(--bg-gradient-end);
           border: 1px solid var(--border-color);
           color: var(--text-color);
           cursor: pointer;
-          padding: 6px 12px;
-          border-radius: 6px;
+          padding: 8px 16px;
+          border-radius: 20px;
           font-family: inherit;
-          font-size: 0.85rem;
-          transition: all 0.2s ease;
+          font-size: 1.2rem;
+          transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 44px;
+          height: 44px;
+          box-shadow: 0 2px 8px var(--card-shadow);
         }
 
         .theme-toggle:hover {
-          background: var(--bg-gradient-end);
+          background: var(--card-border);
+          box-shadow: 0 4px 12px var(--card-shadow);
+          transform: scale(1.05);
+        }
+
+        .theme-toggle:active {
+          transform: scale(0.98);
         }
 
         .team-container {

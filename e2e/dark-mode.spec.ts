@@ -15,9 +15,9 @@ test.describe('Dark Mode Feature', () => {
     const htmlAttr = await page.getAttribute('html', 'data-theme');
     expect(htmlAttr).toBe('light');
 
-    // Verify button text shows "Dark Mode"
+    // Verify button shows moon icon
     const button = page.locator('.theme-toggle');
-    await expect(button).toContainText('Dark Mode');
+    await expect(button).toContainText('🌙');
   });
 
   test('should toggle to dark mode when button is clicked', async ({ page }) => {
@@ -35,8 +35,8 @@ test.describe('Dark Mode Feature', () => {
     const htmlAttr = await page.getAttribute('html', 'data-theme');
     expect(htmlAttr).toBe('dark');
 
-    // Verify button text shows "Light Mode"
-    await expect(button).toContainText('Light Mode');
+    // Verify button shows sun icon
+    await expect(button).toContainText('☀️');
   });
 
   test('should persist theme preference in localStorage', async ({ page }) => {
