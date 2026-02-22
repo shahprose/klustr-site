@@ -6,7 +6,26 @@ import { useWindowSize } from 'react-use';
 export default function Home() {
   const currentYear = new Date().getFullYear();
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const { width, height } = useWindowSize();
+
+  useEffect(() => {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+    const dark = saved ? saved === 'dark' : prefersDark;
+    setIsDark(dark);
+    if (typeof document !== 'undefined') {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isDark;
+    setIsDark(next);
+    const val = next ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', val);
+    localStorage.setItem('theme', val);
+  };
 
   return (
     <div className='container'>
@@ -43,6 +62,9 @@ export default function Home() {
             Demo
           </a>
         </div>
+        <button onClick={toggleTheme} className='theme-toggle'>
+          {isDark ? 'Light Mode' : 'Dark Mode'}
+        </button>
         <div id='upperRight'>
           <a href='/#team' className='header-items'>
             Meet the Team
@@ -251,20 +273,20 @@ export default function Home() {
         footer {
           width: 100%;
           height: 75px;
-          border-top: 1px solid #eaeaea;
+          border-top: 1px solid var(--border-color);
           display: flex;
           justify-content: center;
           align-items: center;
-          background: #ece9e6; /* fallback for old browsers */
+          background: var(--bg-gradient-end); /* fallback for old browsers */
           background: -webkit-linear-gradient(
             to right,
-            #ffffff,
-            #ece9e6
+            var(--bg-gradient-start),
+            var(--bg-gradient-end)
           ); /* Chrome 10-25, Safari 5.1-6 */
           background: linear-gradient(
             to right,
-            #ffffff,
-            #ece9e6
+            var(--bg-gradient-start),
+            var(--bg-gradient-end)
           ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
           position: sticky;
           bottom: 0;
@@ -326,7 +348,7 @@ export default function Home() {
         }
 
         code {
-          background: #fafafa;
+          background: var(--code-bg);
           border-radius: 5px;
           padding: 0.75rem;
           font-size: 1.1rem;
@@ -351,7 +373,7 @@ export default function Home() {
           text-align: left;
           color: inherit;
           text-decoration: none;
-          border: 1px solid #eaeaea;
+          border: 1px solid var(--border-color);
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
         }
@@ -411,20 +433,20 @@ export default function Home() {
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
           width: 100%;
           height: 75px;
-          border-bottom: 1px solid #eaeaea;
+          border-bottom: 1px solid var(--border-color);
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background: #ece9e6; /* fallback for old browsers */
+          background: var(--bg-gradient-end); /* fallback for old browsers */
           background: -webkit-linear-gradient(
             to right,
-            #ffffff,
-            #ece9e6
+            var(--bg-gradient-start),
+            var(--bg-gradient-end)
           ); /* Chrome 10-25, Safari 5.1-6 */
           background: linear-gradient(
             to right,
-            #ffffff,
-            #ece9e6
+            var(--bg-gradient-start),
+            var(--bg-gradient-end)
           ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
           position: sticky;
           top: 0;
@@ -458,9 +480,9 @@ export default function Home() {
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #444;
-          border: 1px solid #ccc;
-          box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+          color: var(--button-text);
+          border: 1px solid var(--button-border);
+          box-shadow: 0 0 5px -1px var(--card-shadow);
           cursor: pointer;
           vertical-align: middle;
           max-width: 100px;
@@ -469,23 +491,23 @@ export default function Home() {
           transition: box-shadow 1.5s;
           margin-bottom: 10px;
 
-          background: #ece9e6; /* fallback for old browsers */
+          background: var(--bg-gradient-end); /* fallback for old browsers */
           background: -webkit-linear-gradient(
             to right,
-            #ffffff,
-            #ece9e6
+            var(--bg-gradient-start),
+            var(--bg-gradient-end)
           ); /* Chrome 10-25, Safari 5.1-6 */
           background: linear-gradient(
             to right,
-            #ffffff,
-            #ece9e6
+            var(--bg-gradient-start),
+            var(--bg-gradient-end)
           ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
           position: sticky;
           top: 0;
         }
 
         .button-div:hover {
-          box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.4);
         }
 
         .button-container {
@@ -502,6 +524,22 @@ export default function Home() {
 
         .header-items:hover {
           color: #ff00ff;
+        }
+
+        .theme-toggle {
+          background: none;
+          border: 1px solid var(--border-color);
+          color: var(--text-color);
+          cursor: pointer;
+          padding: 6px 12px;
+          border-radius: 6px;
+          font-family: inherit;
+          font-size: 0.85rem;
+          transition: all 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+          background: var(--bg-gradient-end);
         }
 
         .team-container {
@@ -574,7 +612,7 @@ export default function Home() {
 
         .gif-img {
           margin: 2em;
-          border: 2px solid #ececec;
+          border: 2px solid var(--border-color);
           border-radius: 10px;
           transition: color 2s ease, border-color 2s ease;
           // border-image: linear-gradient(45deg, #ececec, #eaeaea) 1;
