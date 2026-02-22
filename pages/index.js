@@ -11,11 +11,17 @@ export default function Home() {
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
-    const prefersDark = typeof window !== 'undefined' && window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
+    const prefersDark =
+      typeof window !== 'undefined' && window.matchMedia
+        ? window.matchMedia('(prefers-color-scheme: dark)').matches
+        : false;
     const dark = saved ? saved === 'dark' : prefersDark;
     setIsDark(dark);
     if (typeof document !== 'undefined') {
-      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      document.documentElement.setAttribute(
+        'data-theme',
+        dark ? 'dark' : 'light',
+      );
     }
   }, []);
 
@@ -308,14 +314,14 @@ export default function Home() {
         }
 
         .title {
-          color: #0070f3;
+          color: var(--link-color);
           margin: 0;
           line-height: 1.15;
           font-size: 6rem;
         }
 
         .title a {
-          color: #0070f3;
+          color: var(--link-color);
           text-decoration: none;
         }
 
@@ -331,7 +337,7 @@ export default function Home() {
         }
 
         .subtitles {
-          color: #0070f3;
+          color: var(--link-color);
           margin: 0;
           line-height: 1.15;
           font-size: 4rem;
@@ -349,11 +355,19 @@ export default function Home() {
 
         code {
           background: var(--code-bg);
+          border: 1px solid var(--code-border);
           border-radius: 5px;
           padding: 0.75rem;
           font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+          font-family:
+            Menlo,
+            Monaco,
+            Lucida Console,
+            Liberation Mono,
+            DejaVu Sans Mono,
+            Bitstream Vera Sans Mono,
+            Courier New,
+            monospace;
         }
 
         .grid {
@@ -373,16 +387,21 @@ export default function Home() {
           text-align: left;
           color: inherit;
           text-decoration: none;
-          border: 1px solid var(--border-color);
+          border: 1px solid var(--card-border);
           border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
+          box-shadow: 0 1px 3px var(--card-shadow);
+          transition:
+            color 0.15s ease,
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
         }
 
         .card:hover,
         .card:focus,
         .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
+          color: var(--link-color);
+          border-color: var(--link-color);
+          box-shadow: 0 4px 12px var(--card-shadow);
         }
 
         .card h3 {
@@ -429,8 +448,15 @@ export default function Home() {
         }
 
         header {
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+          font-family:
+            Menlo,
+            Monaco,
+            Lucida Console,
+            Liberation Mono,
+            DejaVu Sans Mono,
+            Bitstream Vera Sans Mono,
+            Courier New,
+            monospace;
           width: 100%;
           height: 75px;
           border-bottom: 1px solid var(--border-color);
@@ -460,8 +486,17 @@ export default function Home() {
           width: 20%;
           justify-content: center;
           align-items: center;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+          font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            Segoe UI,
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            Fira Sans,
+            Droid Sans,
+            Helvetica Neue,
             sans-serif;
         }
 
@@ -566,7 +601,9 @@ export default function Home() {
           width: 150px;
           border-radius: 100px;
           margin-top: 10px;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
         }
 
         .team-picture:hover {
@@ -614,13 +651,15 @@ export default function Home() {
           margin: 2em;
           border: 2px solid var(--border-color);
           border-radius: 10px;
-          transition: color 2s ease, border-color 2s ease;
+          transition:
+            color 2s ease,
+            border-color 2s ease;
           // border-image: linear-gradient(45deg, #ececec, #eaeaea) 1;
         }
 
         .gif-img:hover {
-          color: #0070f3;
-          border-color: #0070f3;
+          color: var(--link-color);
+          border-color: var(--link-color);
         }
       `}</style>
 
@@ -629,8 +668,17 @@ export default function Home() {
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+          font-family:
+            -apple-system,
+            BlinkMacSystemFont,
+            Segoe UI,
+            Roboto,
+            Oxygen,
+            Ubuntu,
+            Cantarell,
+            Fira Sans,
+            Droid Sans,
+            Helvetica Neue,
             sans-serif;
         }
 
