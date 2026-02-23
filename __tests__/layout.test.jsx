@@ -2,22 +2,24 @@ import { render, screen } from '@testing-library/react';
 import Layout from '../components/layout';
 
 // Mock next/image
-jest.mock('next/image', () => {
-  return function MockImage({ priority, ...props }) {
+vi.mock('next/image', () => ({
+  default: function MockImage({ priority, ...props }) {
     // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
     return <img {...props} />;
-  };
-});
+  },
+}));
 
 // Mock next/link — the Layout component uses the old pattern of wrapping <a> inside <Link>,
 // so we render children directly but clone the <a> child to inject the href.
-jest.mock('next/link', () => {
-  const React = require('react');
-  return function MockLink({ href, children }) {
-    if (React.isValidElement(children) && children.type === 'a') {
-      return React.cloneElement(children, { href });
-    }
-    return <a href={href}>{children}</a>;
+vi.mock('next/link', async () => {
+  const React = await import('react');
+  return {
+    default: function MockLink({ href, children }) {
+      if (React.isValidElement(children) && children.type === 'a') {
+        return React.cloneElement(children, { href });
+      }
+      return <a href={href}>{children}</a>;
+    },
   };
 });
 
