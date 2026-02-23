@@ -2,21 +2,21 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Home from '../pages/index';
 
 // Mock next/head to render children into the document head
-jest.mock('next/head', () => {
-  return function MockHead({ children }) {
+vi.mock('next/head', () => ({
+  default: function MockHead({ children }) {
     return <>{children}</>;
-  };
-});
+  },
+}));
 
 // Mock react-confetti
-jest.mock('react-confetti', () => {
-  return function MockConfetti(props) {
+vi.mock('react-confetti', () => ({
+  default: function MockConfetti(props) {
     return <div data-testid="confetti" />;
-  };
-});
+  },
+}));
 
 // Mock react-use
-jest.mock('react-use', () => ({
+vi.mock('react-use', () => ({
   useWindowSize: () => ({ width: 1024, height: 768 }),
 }));
 
