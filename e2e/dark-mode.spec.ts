@@ -16,7 +16,7 @@ test.describe('Dark Mode Feature', () => {
     expect(htmlAttr).toBe('light');
 
     // Verify button shows moon icon
-    const button = page.locator('.theme-toggle');
+    const button = page.getByTestId('theme-toggle');
     await expect(button).toContainText('🌙');
   });
 
@@ -25,7 +25,7 @@ test.describe('Dark Mode Feature', () => {
     await page.waitForLoadState('networkidle');
 
     // Click the theme toggle button
-    const button = page.locator('.theme-toggle');
+    const button = page.getByTestId('theme-toggle');
     await button.click();
 
     // Take screenshot of dark mode
@@ -44,7 +44,7 @@ test.describe('Dark Mode Feature', () => {
     await page.waitForLoadState('networkidle');
 
     // Toggle to dark mode
-    await page.locator('.theme-toggle').click();
+    await page.getByTestId('theme-toggle').click();
 
     // Check localStorage
     const theme = await page.evaluate(() => localStorage.getItem('theme'));
@@ -75,7 +75,7 @@ test.describe('Dark Mode Feature', () => {
     expect(['#ffffff', '#fff'].includes(lightBgColor.trim())).toBeTruthy();
 
     // Toggle to dark mode
-    await page.locator('.theme-toggle').click();
+    await page.getByTestId('theme-toggle').click();
 
     // Get computed styles for dark mode
     const darkBgColor = await page.evaluate(() => {
@@ -89,7 +89,7 @@ test.describe('Dark Mode Feature', () => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    const button = page.locator('.theme-toggle');
+    const button = page.getByTestId('theme-toggle');
 
     // Check button is visible
     await expect(button).toBeVisible();
