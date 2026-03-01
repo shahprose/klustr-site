@@ -121,7 +121,7 @@
 
 .splashLogo {
   height: 10em;
-  animation: rotation 500s infinite linear;
+  animation: rotation 100s infinite linear;
   display: inline;
 }
 
