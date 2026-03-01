@@ -22,6 +22,8 @@ vi.mock('react-use', () => ({
 
 describe('Landing Page', () => {
   beforeEach(() => {
+    localStorage.clear();
+    document.documentElement.removeAttribute('data-theme');
     render(<Home />);
   });
 
@@ -89,7 +91,7 @@ describe('Landing Page', () => {
       '/images/Core-Metrics-SM.gif',
       '/images/Broker-View-SM.gif',
     ];
-    const gifImages = document.querySelectorAll('.gif-img');
+    const gifImages = screen.getAllByTestId('gif-img');
     expect(gifImages).toHaveLength(5);
     gifImages.forEach((img, i) => {
       expect(img).toHaveAttribute('src', expectedSrcs[i]);
@@ -105,7 +107,7 @@ describe('Landing Page', () => {
   });
 
   it('each team member has GitHub and LinkedIn links', () => {
-    const teamMembers = document.querySelectorAll('.team-members');
+    const teamMembers = screen.getAllByTestId('team-member');
     expect(teamMembers).toHaveLength(5);
     teamMembers.forEach((member) => {
       const links = member.querySelectorAll('a');
@@ -131,5 +133,42 @@ describe('Landing Page', () => {
       'a[href="https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42"]'
     );
     expect(mediumLinks.length).toBeGreaterThanOrEqual(1);
+  });
+
+  describe('theme toggle', () => {
+    it('starts in light mode by default', () => {
+      const toggle = screen.getByTestId('theme-toggle');
+      expect(toggle.textContent).toBe('🌙');
+    });
+
+    it('clicking theme toggle sets data-theme="dark" on html', () => {
+      const toggle = screen.getByTestId('theme-toggle');
+      fireEvent.click(toggle);
+      expect(document.documentElement).toHaveAttribute('data-theme', 'dark');
+    });
+
+    it('clicking theme toggle twice returns to light mode', () => {
+      const toggle = screen.getByTestId('theme-toggle');
+      fireEvent.click(toggle);
+      fireEvent.click(toggle);
+      expect(document.documentElement).toHaveAttribute('data-theme', 'light');
+    });
+
+    it('clicking theme toggle switches icon from moon to sun', () => {
+      const toggle = screen.getByTestId('theme-toggle');
+      expect(toggle.textContent).toBe('🌙');
+      fireEvent.click(toggle);
+      expect(toggle.textContent).toBe('☀️');
+    });
+
+    it('clicking theme toggle calls localStorage.setItem with correct value', () => {
+      const spy = vi.spyOn(Storage.prototype, 'setItem');
+      const toggle = screen.getByTestId('theme-toggle');
+      fireEvent.click(toggle);
+      expect(spy).toHaveBeenCalledWith('theme', 'dark');
+      fireEvent.click(toggle);
+      expect(spy).toHaveBeenCalledWith('theme', 'light');
+      spy.mockRestore();
+    });
   });
 });

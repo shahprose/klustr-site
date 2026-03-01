@@ -18,5 +18,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
     include: ['__tests__/**/*.{test,spec}.{js,jsx,ts,tsx}'],
+    moduleNameMapper: {
+      '\\.module\\.css$': 'identity-obj-proxy',
+    },
   },
 });
