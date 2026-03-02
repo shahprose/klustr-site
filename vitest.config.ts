@@ -8,7 +8,10 @@ export default defineConfig({
       enforce: 'pre',
       async transform(code, id) {
         if (!id.match(/\.(js)$/)) return null;
-        return transformWithEsbuild(code, id, { loader: 'jsx', jsx: 'automatic' });
+        return transformWithEsbuild(code, id, {
+          loader: 'jsx',
+          jsx: 'automatic',
+        });
       },
     },
     react(),

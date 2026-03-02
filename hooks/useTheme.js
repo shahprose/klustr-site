@@ -5,10 +5,14 @@ export function useTheme() {
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+    const prefersDark =
+      window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
     const dark = saved ? saved === 'dark' : prefersDark;
     setIsDark(dark);
-    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    document.documentElement.setAttribute(
+      'data-theme',
+      dark ? 'dark' : 'light'
+    );
   }, []);
 
   const toggleTheme = () => {

@@ -3,7 +3,7 @@ import styles from '../styles/home.module.css';
 
 export default function DemoSection() {
   return (
-    <div className={styles.demoContainer} id='demo'>
+    <div className={styles.demoContainer} id="demo">
       <div className={styles.placeholder}></div>
       <div className={styles.bodyHeaders}>
         <h1 className={styles.subtitles}>Demo</h1>
@@ -15,7 +15,7 @@ export default function DemoSection() {
             className={styles.gifImg}
             src={src}
             alt={src.split('/').pop().replace('.gif', '')}
-            data-testid='gif-img'
+            data-testid="gif-img"
           />
         ))}
       </div>

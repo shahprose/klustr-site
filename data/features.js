@@ -1,7 +1,8 @@
 export const features = [
   {
     title: 'User-friendly GUI',
-    description: 'Making it easy to monitor your Apache Kafka clusters in real time',
+    description:
+      'Making it easy to monitor your Apache Kafka clusters in real time',
   },
   {
     title: 'Insight',
