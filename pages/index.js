@@ -17,11 +17,14 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <a name='top'></a>
+      <a name="top"></a>
       <Head>
         <title>klustr - a kafka monitoring solution</title>
-        <link rel='icon' href='/LogoDots.svg' />
-        <meta name='description' content='klustr - a kafka monitoring solution' />
+        <link rel="icon" href="/LogoDots.svg" />
+        <meta
+          name="description"
+          content="klustr - a kafka monitoring solution"
+        />
       </Head>
 
       <Header isDark={isDark} onToggleTheme={toggleTheme} />

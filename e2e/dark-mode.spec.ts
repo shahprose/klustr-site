@@ -9,7 +9,10 @@ test.describe('Dark Mode Feature', () => {
     await page.waitForLoadState('networkidle');
 
     // Take screenshot of light mode
-    await page.screenshot({ path: `${screenshotDir}/01-light-mode.png`, fullPage: true });
+    await page.screenshot({
+      path: `${screenshotDir}/01-light-mode.png`,
+      fullPage: true,
+    });
 
     // Verify light mode theme is set
     const htmlAttr = await page.getAttribute('html', 'data-theme');
@@ -20,7 +23,9 @@ test.describe('Dark Mode Feature', () => {
     await expect(button).toContainText('🌙');
   });
 
-  test('should toggle to dark mode when button is clicked', async ({ page }) => {
+  test('should toggle to dark mode when button is clicked', async ({
+    page,
+  }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
@@ -29,7 +34,10 @@ test.describe('Dark Mode Feature', () => {
     await button.click();
 
     // Take screenshot of dark mode
-    await page.screenshot({ path: `${screenshotDir}/02-dark-mode.png`, fullPage: true });
+    await page.screenshot({
+      path: `${screenshotDir}/02-dark-mode.png`,
+      fullPage: true,
+    });
 
     // Verify dark mode theme is set
     const htmlAttr = await page.getAttribute('html', 'data-theme');
@@ -59,7 +67,10 @@ test.describe('Dark Mode Feature', () => {
     expect(htmlAttr).toBe('dark');
 
     // Take screenshot after reload
-    await page.screenshot({ path: `${screenshotDir}/03-dark-mode-persisted.png`, fullPage: true });
+    await page.screenshot({
+      path: `${screenshotDir}/03-dark-mode-persisted.png`,
+      fullPage: true,
+    });
   });
 
   test('should have proper CSS variables applied', async ({ page }) => {
@@ -68,7 +79,9 @@ test.describe('Dark Mode Feature', () => {
 
     // Get computed styles for light mode (normalize to lowercase for comparison)
     const lightBgColor = await page.evaluate(() => {
-      return getComputedStyle(document.documentElement).getPropertyValue('--bg-color').toLowerCase();
+      return getComputedStyle(document.documentElement)
+        .getPropertyValue('--bg-color')
+        .toLowerCase();
     });
 
     // Accept both #ffffff and #fff formats
@@ -79,13 +92,17 @@ test.describe('Dark Mode Feature', () => {
 
     // Get computed styles for dark mode
     const darkBgColor = await page.evaluate(() => {
-      return getComputedStyle(document.documentElement).getPropertyValue('--bg-color').toLowerCase();
+      return getComputedStyle(document.documentElement)
+        .getPropertyValue('--bg-color')
+        .toLowerCase();
     });
 
     expect(darkBgColor.trim()).toContain('111827');
   });
 
-  test('theme toggle button should be visible and styled properly', async ({ page }) => {
+  test('theme toggle button should be visible and styled properly', async ({
+    page,
+  }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 

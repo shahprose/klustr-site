@@ -3,7 +3,7 @@ import styles from '../styles/home.module.css';
 
 export default function FeaturesSection() {
   return (
-    <div className={styles.featuresContainer} id='features'>
+    <div className={styles.featuresContainer} id="features">
       <div className={styles.placeholder}></div>
       <div className={styles.bodyHeaders}>
         <h1 className={styles.subtitles}>Features</h1>

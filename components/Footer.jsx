@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div>
-        <img src='/LogoDots.svg' alt='klustr Logo' className={styles.logoBig} />
+        <img src="/LogoDots.svg" alt="klustr Logo" className={styles.logoBig} />
       </div>
-      <a href='#top' rel='noopener noreferrer'>
+      <a href="#top" rel="noopener noreferrer">
         © {currentYear} klustr / OSLabs. All rights reserved.{' '}
       </a>
     </footer>
