@@ -25,19 +25,19 @@ export default function HeroSection({
 
       <div className={styles.buttonContainer}>
         <div className={styles.buttonDiv}>
-          <a href="https://github.com/oslabs-beta/klustr">
+          <a href="https://github.com/oslabs-beta/klustr" target="_blank" rel="noopener noreferrer">
             <img src="/GitHub-Mark-32px.png" alt="GitHub" />
           </a>
         </div>
         <div className={styles.buttonDiv}>
-          <a href="https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42">
+          <a href="https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42" target="_blank" rel="noopener noreferrer">
             <img src="/Medium.png" alt="Medium" />
           </a>
         </div>
       </div>
 
       <div className={styles.grid}>
-        <a href="https://github.com/oslabs-beta/klustr" className={styles.card}>
+        <a href="https://github.com/oslabs-beta/klustr" className={styles.card} target="_blank" rel="noopener noreferrer">
           <h3>Documentation &rarr;</h3>
           <p>
             Find in-depth information about running klustr by checking out our
@@ -47,6 +47,8 @@ export default function HeroSection({
         <a
           href="https://medium.com/@klgvillanueva/an-intimate-look-at-your-kafka-cluster-with-klustr-dc448ca45c42"
           className={styles.card}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <h3>Learn &rarr;</h3>
           <p>

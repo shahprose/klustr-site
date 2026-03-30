@@ -6,14 +6,14 @@ export default function TeamMember({ name, image, github, linkedin }) {
       <img className={styles.teamPicture} src={image} alt={name} />
       <h3>{name}</h3>
       <div className={styles.gitLinkedContainer}>
-        <a href={github}>
+        <a href={github} target="_blank" rel="noopener noreferrer">
           <img
             src="/GitHub-Mark-32px.png"
             className={styles.logos}
             alt="GitHub"
           />
         </a>
-        <a href={linkedin}>
+        <a href={linkedin} target="_blank" rel="noopener noreferrer">
           <img src="/linkedin.png" className={styles.logos} alt="LinkedIn" />
         </a>
       </div>
