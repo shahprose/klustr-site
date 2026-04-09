@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useState } from 'react';
 import { useWindowSize } from 'react-use';
 import { useTheme } from '../hooks/useTheme';
@@ -10,7 +9,7 @@ import TeamSection from '../components/TeamSection';
 import Footer from '../components/Footer';
 import styles from '../styles/home.module.css';
 
-export default function Home() {
+export default function App() {
   const { isDark, toggleTheme } = useTheme();
   const [showConfetti, setShowConfetti] = useState(false);
   const { width, height } = useWindowSize();
@@ -18,14 +17,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <a name="top"></a>
-      <Head>
-        <title>klustr - a kafka monitoring solution</title>
-        <link rel="icon" href="/LogoDots.svg" />
-        <meta
-          name="description"
-          content="klustr - a kafka monitoring solution"
-        />
-      </Head>
 
       <Header isDark={isDark} onToggleTheme={toggleTheme} />
 

@@ -1,12 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import Home from '../pages/index';
-
-// Mock next/head to render children into the document head
-vi.mock('next/head', () => ({
-  default: function MockHead({ children }) {
-    return <>{children}</>;
-  },
-}));
+import App from '../src/App';
 
 // Mock react-confetti
 vi.mock('react-confetti', () => ({
@@ -24,21 +17,7 @@ describe('Landing Page', () => {
   beforeEach(() => {
     localStorage.clear();
     document.documentElement.removeAttribute('data-theme');
-    render(<Home />);
-  });
-
-  it('renders page title', () => {
-    const title = document.querySelector('title');
-    expect(title).not.toBeNull();
-    expect(title.textContent).toBe('klustr - a kafka monitoring solution');
-  });
-
-  it('renders meta description', () => {
-    const metaDescription = document.querySelector('meta[name="description"]');
-    expect(metaDescription).toHaveAttribute(
-      'content',
-      'klustr - a kafka monitoring solution'
-    );
+    render(<App />);
   });
 
   it('renders navigation links with correct hrefs', () => {
