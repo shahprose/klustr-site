@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+# pnpm build-approval scaffold: regenerates locally, breaks Vercel's
+# pnpm@9.x (which requires a `packages:` field it doesn't have) if committed
+/pnpm-workspace.yaml
 
 # testing
 /coverage
