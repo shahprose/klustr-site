@@ -25,11 +25,11 @@
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "^5.1.4",
-    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/coverage-v8": "^4.1.10",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^29.0.2",
     "prettier": "^3.8.1",
     "vite": "^7.3.2",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.10"
   }
 }
